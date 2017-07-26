@@ -6,6 +6,11 @@
 </header>
 
 <main>
+
+  <form action="" class="todo-form" (submit)="create($event, titleInput.value)">
+    <input type="text" #titleInput>
+    <button type="submit">Добавить</button>
+  </form>
   <section class="todo-list" *ngIf="todos.length">
     <div class="todo-item" *ngFor="let todo of todos" [ngClass]="{'completed': todo.completed}">
     <!-- через класс not working -->

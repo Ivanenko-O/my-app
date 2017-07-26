@@ -1,9 +1,13 @@
 import {Component} from '@angular/core';
 
-const todos = [
+class Todo {
+  constructor(public title: string, public completed: boolean = false) {  }
+}
+
+const todos: Todo[] = [
   {
     title: 'изучитть JS',
-    completed: true
+    completed: false
   },
   {
     title: 'изучитть nG2',
@@ -21,9 +25,15 @@ const todos = [
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })
+
 export class AppComponent {
-  title = 'Angular 2Do';
-  todos = todos; // свойство класса;
+  title: string = 'Angular 2Do';
+  todos: Todo[] = todos; // свойство класса;
+
+  create(event: Event, title) {
+    let todo: Todo = new Todo(title);
+    this.todos.push(todo);
+  }
 
   toggle(todo) {
     todo.completed = !todo.completed;
