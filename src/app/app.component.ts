@@ -29,10 +29,13 @@ const todos: Todo[] = [
 export class AppComponent {
   title: string = 'Angular 2Do';
   todos: Todo[] = todos; // свойство класса;
+  newTodoTitle: string = ''; // class property;
 
-  create(event: Event, title) {
-    let todo: Todo = new Todo(title);
+  create() {
+    event.preventDefault();
+    let todo: Todo = new Todo(this.newTodoTitle);
     this.todos.push(todo);
+    this.newTodoTitle = '';
   }
 
   toggle(todo) {
