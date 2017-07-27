@@ -6,38 +6,10 @@
 </header>
 
 <main>
+  <app-todo-form></app-todo-form>
 
-  <form action="" class="todo-form" (ngSubmit)="create(); todoForm.reset();" #todoForm="ngForm">
-    <input type="text" [(ngModel)]="newTodoTitle" name ="title" required placeholder="what should do">
-    <button type="submit" [disabled]="todoForm.form.invalid">Добавить</button>
-  </form>
-  <section class="todo-list" *ngIf="todos.length">
-    <div class="todo-item" *ngFor="let todo of todos" [ngClass]="{'completed': todo.completed}">
-    <!-- через класс not working -->
-    <!--<div class="todo-item" *ngFor="let todo of todos" [сlass.completed] = "todo.completed">-->
+  <todo-list></todo-list>
 
-      <button class="checkbox icon" (click)="toggle(todo)">
-        <!-- структурная директива -->
-        <!--<i *ngIf="!todo.completed" class="material-icons">check_box_outline_blank</i>-->
-        <!--<i *ngIf="todo.completed" class="material-icons">check-box</i>-->
-
-        <!-- интреполяция/interpolation -->
-        <!--<i class="material-icons">{{ todo.completed ? 'check-box' :  'check_box_outline_blank'}}</i>-->
-
-        <!-- переплет свойств/property binding -->
-        <i class="material-icons" [textContent]="todo.completed ? 'check-box' :  'check_box_outline_blank'"></i>
-      </button>
-
-      <span class="title">{{ todo.title }}</span>
-
-      <div class="actions">
-        <button class="delete icon">
-          <i class="material-icons" (click)="delete(todo)">delete</i>
-        </button>
-      </div>
-    </div>
-
-  </section>
 </main>
 
 
