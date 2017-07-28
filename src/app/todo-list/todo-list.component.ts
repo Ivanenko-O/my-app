@@ -12,11 +12,7 @@ import { todos } from '../shared/data';
 export class TodoListComponent {
   todos: Todo[] = todos;
 
-  toggle(todo) {
-    todo.completed = !todo.completed;
-  }
-
-  delete(todo) {
+  delete(todo) { // свойство
     let index = this.todos.indexOf(todo);
 
     if (index > -1) {

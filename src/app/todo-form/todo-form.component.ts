@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-todo-form',
+  selector: 'todo-form',
   templateUrl: 'todo-form.component.html',
   styleUrls: ['todo-form.component.css']
 })
